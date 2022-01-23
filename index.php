@@ -47,6 +47,10 @@ $showAlert = true;
 
 if($result){
     $phpmailer = new PHPMailer(true);
+
+    $_SESSION['tokken'] = $token;
+    $_SESSION['email'] = $email;
+
     try {
        
         $phpmailer->isSMTP();
