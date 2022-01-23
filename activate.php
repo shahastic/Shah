@@ -10,7 +10,7 @@ if ($GET['token']) {
     // echo $token;
 
     $tokken = $_SESSION['tokken'];
-    if ($tokensession == $token) {
+    if ($tokken == $token) {
         $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
 
         $query = mysqli_query($conn, $update);
