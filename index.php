@@ -216,7 +216,7 @@ button{
 
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" name="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter email">
+            <input type="email" required name="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter email">
             <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
         <button type="submit" class="btn btn-primary">Subscribe</button>

@@ -20,8 +20,8 @@ $emailV = $_GET['email'];
 if ($email == $emailV) {
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
     include '_dbconnect.php';
-    $sql = "UPDATE `users` SET `active` = '0' WHERE `users`.`email` = '$email'";
-    $sqldel = "DELETE FROM `users` WHERE `users`.`email` = '$email'";
+    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$email'";
+    $sqldel = "DELETE FROM `shavi` WHERE `shavi`.`email` = '$email'";
     $result = mysqli_query($conn, $sql);
     $resultDel = mysqli_query($conn, $sqldel);
     session_unset();
