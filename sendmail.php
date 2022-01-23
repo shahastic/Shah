@@ -5,7 +5,6 @@ require("vendor/autoload.php");
 require_once("mailerphp/PHPMailer.php");
 require_once("mailerphp/SMTP.php");
 require_once("mailerphp/Exception.php");
-$email = $_SESSION['email'];
 
 use PHPMailer\PHPMailer\PHPMailer;
 ?>

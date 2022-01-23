@@ -4,13 +4,16 @@ session_start();
 
 include '_dbconnect.php';
 
-if(isset($GET['token'])){
+
 
     $token = $_GET['token'];
-    // echo $token;
-
+    echo $token;
+    $tokken = $_SESSION['tokken'];
+    echo $tokken;
+    if($tokken==$token){
+        echo "if";
     // $update = "Update Registration Set Status ='active' where token= '$token' ";
-    $update = "UPDATE `shavi` SET active = '1' WHERE `test` . `token` = '$tokken' ";
+    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
 
     $query = mysqli_query($conn, $update);
     if(($query)){
@@ -20,6 +23,7 @@ if(isset($GET['token'])){
             header('Location: index.php');
         }
     }
+
 
 ?>
 <!DOCTYPE html>
