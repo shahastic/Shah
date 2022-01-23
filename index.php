@@ -1,8 +1,24 @@
+
 <?php
+session_start();
+include '_dbconnect.php';
+require("vendor/autoload.php");
+require_once("mailerphp/PHPMailer.php");
+require_once("mailerphp/SMTP.php");
+require_once("mailerphp/Exception.php");
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+require 'vendor/autoload.php';
+?>
+
+<?php
+
+require "_dbconnect.php";
+
 
 $showAlert = false;
 $showError = false;
-require "_dbconnect.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 $email = $_POST["email"];
@@ -12,7 +28,7 @@ $token = openssl_random_pseudo_bytes(16);
 //Convert the binary data into hexadecimal representation.
 $token = bin2hex($token);
 
-$existsql = "SELECT * FROM `user` WHERE email = '$email'";
+$existsql = "SELECT * FROM `shavi` WHERE email = '$email'";
 $result = mysqli_query($conn, $existsql);
 $numExistRows = mysqli_num_rows($result);
 if($numExistRows>0)
@@ -22,7 +38,7 @@ if($numExistRows>0)
 else
 {
 
-$sql = "INSERT INTO `user` (`sno`, `email`, `token`, `tstamp`, `active`) VALUES (NULL, '$email', '$token', current_timestamp(), '0');";
+$sql = "INSERT INTO `shavi` (`sno`, `email`, `token`, `tstamp`, `active`) VALUES (NULL, '$email', '$token', current_timestamp(), '0');";
 $result = mysqli_query($conn, $sql);
 echo $result;
 $showAlert = true;
@@ -30,21 +46,38 @@ $showAlert = true;
 }
 
 if($result){
-// $email = "shavi12345789@gmail.com";
-$subject = "Simple Email Test via PHP";
-$body = "Hi User, Click the given link to activate your email.. http://localhost/mail-xkcd/activate.php?token=$token";
-$headers = "From: phpassignmail@gmail.com";
-
-if (mail($email, $subject, $body, $headers)) {
-    echo " Email successfully sent to $email...";
-} 
-else  
-{
-    echo "Email sending failed...";
-}
-}
-else {
-  echo "HI";
+    $phpmailer = new PHPMailer(true);
+    try {
+       
+        $phpmailer->isSMTP();
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $phpmailer->Host = "smtp.gmail.com";
+        $phpmailer->Port = "587";
+        $phpmailer->Username = "testmailassignmentphp@gmail.com";
+        $phpmailer->Password = "Hritik@123!!";
+        $phpmailer->setFrom("testmailassignmentphp@gmail.com");
+        $phpmailer->addAddress($email);
+        $phpmailer->isHTML(true);
+        $phpmailer->Subject = "Verify email";
+        $phpmailer->Body    = "You will be subscribed to XKCD challenge after verifying!
+        https://testheroku1088.herokuapp.com/welcome.php?token=$token\n";
+        if ($phpmailer->send()) {
+            echo '<div class="alert">
+            <p> <strong>Email verification sent!!! <br> </strong>  Please verify your email address.</p>
+           </div>';
+        } else {
+            echo "{$mail->ErrorInfo}";
+        }
+    } catch (Exception $e) {
+        echo '<div class="alert">
+        <p> Something Went Wrong</p>
+       </div>';
+    }
+} else {
+    echo '<div class="alert">
+    <p> You have already Subscribed to XKCD</p>
+   </div>';
 }
 }
 ?>
@@ -203,9 +236,6 @@ if($showError)
     ?>
     </form>
   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.href);
