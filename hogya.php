@@ -27,15 +27,7 @@ if ($email == $emailV) {
     session_unset();
     session_destroy();
     if ($result) {
-        echo '<div class="container1">
-        <div class="brand-title" style="color: red;">unSubscribed!!!</div>
-        <br> <br> <br>
-        <p>You have Successfully unsubscribed to XKCD!!!</p>
-        <br> <br> <br>
-        <div class="inputs">
-        <button type="submit" class="btn btn-primary"><a style="color: white; text-decoration: none;" href='.$indexPage.'>Subscribe</a></button>
-        </div>
-    </div>';
+        header("Location : https://shavi1111.herokuapp.com/unsubscribe.php");
     }
     else {
         header("Location : https://shavi1111.herokuapp.com/index.php");
