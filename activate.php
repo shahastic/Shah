@@ -148,7 +148,7 @@ session_start();
 
 include '_dbconnect.php';
 
-if ($GET['token']) {
+if ($_GET['token']) {
 
     $token = $_GET['token'];
     // echo $token;
@@ -168,7 +168,5 @@ if ($GET['token']) {
         echo "hi";
     }
 }
-else {
-    echo "so";
-}
+
 ?>
