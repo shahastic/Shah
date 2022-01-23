@@ -131,7 +131,7 @@ button{
 <h4> Subscribe it again if you want to read it!....</h4><br>
 <h3>Thank You!</h3>
           </div>
-        <button type="submit" class="btn btn-primary">UnSubscribe</button>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
 
     </form>
     <!-- Javascript -->

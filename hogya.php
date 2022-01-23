@@ -18,8 +18,8 @@ session_start();
 $email = $_SESSION['email'];
 $emailV = $_GET['email'];
 if ($email == $emailV) {
-    $indexPage = "https://testheroku1088.herokuapp.com/index.php";
-    include '_dbConnect.php';
+    $indexPage = "https://shavi1111.herokuapp.com/index.php";
+    include '_dbconnect.php';
     $sql = "UPDATE `users` SET `active` = '0' WHERE `users`.`email` = '$email'";
     $sqldel = "DELETE FROM `users` WHERE `users`.`email` = '$email'";
     $result = mysqli_query($conn, $sql);
@@ -38,7 +38,7 @@ if ($email == $emailV) {
     </div>';
     }
     else {
-        header("Location : https://testheroku1088.herokuapp.com/index.php");
+        header("Location : https://shavi1111.herokuapp.com/index.php");
 } 
 
 }
