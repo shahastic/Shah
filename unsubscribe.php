@@ -132,7 +132,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="/https://shavi1111.herokuapp.com/index.php" method="POST">
+    <form action="index.php" method="POST">
         <h3>Subscribe This XKCD Challenge</h3>
 
         <div class="form-group">
