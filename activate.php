@@ -9,21 +9,18 @@ if(isset($GET['token'])){
     $token = $_GET['token'];
     // echo $token;
 
-    $update = "Update Registration Set Status ='active' where token= '$token' ";
+    // $update = "Update Registration Set Status ='active' where token= '$token' ";
+    $update = "UPDATE `shavi` SET active = '1' WHERE `test` . `token` = '$tokken' ";
 
     $query = mysqli_query($conn, $update);
     if(($query)){
-        if(isset($_SESSION['msg'])){
-            $_SESSION['msg'] = "Account Verified Successfully";
-            header('location: sendmail.php');
-
+        header('Location: sendmail.php');
         }
         else {
-            $_SESSION['msg'] = "Account not verified";
-            header('index.php');
+            header('Location: index.php');
         }
     }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
