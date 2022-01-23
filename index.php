@@ -54,14 +54,14 @@ if($result){
         $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $phpmailer->Host = "smtp.gmail.com";
         $phpmailer->Port = "587";
-        $phpmailer->Username = "testmailassignmentphp@gmail.com";
-        $phpmailer->Password = "Hritik@123!!";
-        $phpmailer->setFrom("testmailassignmentphp@gmail.com");
+        $phpmailer->Username = "phpassignmail@gmail.com";
+        $phpmailer->Password = "php1123!!";
+        $phpmailer->setFrom("phpassignmail@gmail.com");
         $phpmailer->addAddress($email);
         $phpmailer->isHTML(true);
         $phpmailer->Subject = "Verify email";
         $phpmailer->Body    = "You will be subscribed to XKCD challenge after verifying!
-        https://testheroku1088.herokuapp.com/welcome.php?token=$token\n";
+        https://shavi1111.herokuapp.com/activate.php?token=$token\n";
         if ($phpmailer->send()) {
             echo '<div class="alert">
             <p> <strong>Email verification sent!!! <br> </strong>  Please verify your email address.</p>
@@ -207,7 +207,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="/mail-xkcd/index.php" method ="POST">
+    <form action="index.php" method ="POST">
         <h3>Subscribe This XKCD Challenge</h3>
 
         <div class="form-group">
