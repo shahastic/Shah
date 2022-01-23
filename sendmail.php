@@ -43,7 +43,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 			To Unsubscribe the Xkcd,  --> <a target='_blank' href='" . $urlun . "'>Click here</a><br />";
 	$mail->addStringAttachment(file_get_contents($img), "$subject.jpg");
 	if ($mail->send()) {
-		header("Location: hogya.php");
+		header("Location: activate.php");
 	} else {
 		echo '<div class="container2">
         <div class="brand-title" style="color: red;">Error!!!</div>
