@@ -1,30 +1,3 @@
-<?php
-
-session_start();
-
-include '_dbconnect.php';
-
-if ($GET['token']) {
-
-    $token = $_GET['token'];
-    // echo $token;
-
-    $tokken = $_SESSION['tokken'];
-    if ($tokken == $token) {
-        $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
-
-        $query = mysqli_query($conn, $update);
-
-        if ($query) {
-            header('Location:sendmail.php');
-        } else {
-            header('Location:index.php');
-        }
-    } else {
-        echo "hi";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -167,3 +140,35 @@ if ($GET['token']) {
 </body>
 
 </html>
+
+
+<?php
+
+session_start();
+
+include '_dbconnect.php';
+
+if ($GET['token']) {
+
+    $token = $_GET['token'];
+    // echo $token;
+
+    $tokken = $_SESSION['tokken'];
+    if ($tokken == $token) {
+        $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
+
+        $query = mysqli_query($conn, $update);
+
+        if ($query) {
+            header('Location:sendmail.php');
+        } else {
+            header('Location:index.php');
+        }
+    } else {
+        echo "hi";
+    }
+}
+else {
+    echo "so";
+}
+?>
