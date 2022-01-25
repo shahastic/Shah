@@ -129,18 +129,18 @@ include '_dbconnect.php';
 
 
 
-    $token = $_GET['token'];
-    $email = $_GET['email'];
+    $tokken = $_GET['token'];
+    $emmail = $_GET['email'];
     // $tokken = $_SESSION['tokken'];
     
-    if($token && $email){
+    if($tokken && $emmail){
        
    
-    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$token' AND `shavi`. email = $email";
+    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' AND `shavi`. 'email' = $emmail";
 
     $query = mysqli_query($conn, $update);
     if(($query)){
-        header("Location: sendmail.php?email=$email&token=$token");
+        header("Location: sendmail.php?email=$emmail&token=$tokken");
         }
         else {
             header('Location: galti.php');
