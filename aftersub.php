@@ -120,7 +120,7 @@ button{
         <div class="shape"></div>
     </div>
 
-    <form action="#">
+    <form action="/https://shavi1111.herokuapp.com/index.php">
         <h3>The Comic Mailer</h3> <br><br><br>
 
         <div class="form-group" class="text">

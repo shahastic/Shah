@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,29 +116,14 @@ button{
 
     </style>
 </head>
-<body>
-    <div class="only">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
 
-    <form action="/https://shavi1111.herokuapp.com/index.php">
-        <h3>The Comic Mailer</h3> <br><br><br>
-
-        <div class="form-group" class="text">
-        <h4> Your Email is Verified! Comic is sent on Your Email Address.... Check it out! and enjoy after every 5 minutes..</h4><br>
-<h3>Thank You!</h3>
-          </div>
-
-    </form>
-</body>
 </html>
 
 
 
 <?php
 
-session_start();
+
 
 include '_dbconnect.php';
 
