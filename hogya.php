@@ -28,7 +28,7 @@ if ($email == $emailV) {
     $sqldel = "DELETE * FROM `shavi` WHERE `shavi`.`email` = '$email'";
     
     $result = mysqli_query($conn, $sql);
-    
+    echo $result ;
     $resultDel = mysqli_query($conn, $sqldel);
     
     session_unset();

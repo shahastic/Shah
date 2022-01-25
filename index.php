@@ -43,7 +43,7 @@ $result = mysqli_query($conn, $sql);
 
 $showAlert = true;
 
-}
+
 
 if($result){
     $phpmailer = new PHPMailer(true);
@@ -82,6 +82,7 @@ if($result){
     echo '<div class="alert">
     <p> You have already Subscribed to XKCD</p>
    </div>';
+}
 }
 }
 ?>
