@@ -223,21 +223,7 @@ button{
           </div>
         <button type="submit" class="btn btn-primary">Subscribe</button>
        
-<?php
-if($showAlert)
- {
- echo " <div class='container'>
- <b>You Email is Sent. Please Verify your Email Address...</b>
-</div>";
-}
 
-if($showError)
-{
- echo " <div class='container'>
- <b>You Email is Not Sent. Enter your correct Email Address...</b>
-</div>";
-}
-?>
     </form>
   
     <script>
