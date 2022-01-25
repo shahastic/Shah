@@ -135,7 +135,7 @@ $email = $_SESSION['email'];
 $emailV = $_GET['email'];
 
 if ($email == $emailV) {
-    $indexPage = "https://shavi1111.herokuapp.com/index.php";
+    // $indexPage = "https://shavi1111.herokuapp.com/index.php";
     $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$email'";
     
     $sqldel = "DELETE * FROM `shavi` WHERE `shavi`.`email` = '$email'";
@@ -147,22 +147,7 @@ if ($email == $emailV) {
     session_unset();
     session_destroy();
     if ($result) {
-       echo '<div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
-    <form action="index.php" method="POST">
-        <h3>The Comic Mailer</h3>
-
-        <div class="form-group">
-            <h4> Ohhhh!! You have Unsubscribed Our Comic.</h4><br>
-            <h4> Now you are not able to read it again....</h4><br>
-            <h4> Subscribe it again if you want to read it!....</h4><br>
-            <h3>Thank You!</h3>
-        </div>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-
-    </form>' ;   }
+       echo "hooi";  }
    
 
 }
