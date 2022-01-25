@@ -1,10 +1,10 @@
 <?php
-session_start();
+// session_start();
 ?>
 
  <?php
 include '_dbconnect.php';
-$email = $_SESSION['email'];
+// $email = $_SESSION['email'];
 
 $emailV = $_GET['email'];
 

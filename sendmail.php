@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include '_dbconnect.php';
 require("vendor/autoload.php");
 require_once("mailerphp/PHPMailer.php");
@@ -10,7 +10,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 ?>
   <?php
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
-	$email = $_SESSION['email'];
+	// $email = $_SESSION['email'];
+	$email = 'email';
+	$token = 'token';
 	$rand_comic = rand(0, 1000);
 	$api_url    = 'http://xkcd.com/' . $rand_comic . '/info.0.json';
 	$json_data = file_get_contents($api_url);
@@ -19,7 +21,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 	$name = $comic->title;
 	$img = $comic->img;
 	$subject = "$comic->title";
-	$urlun = "https://shavi1111.herokuapp.com/hogya.php?email=$email";
+	$urlun = "https://shavi1111.herokuapp.com/hogya.php?email=$email&token=$token";
 	$mailersend = new PHPMailer(true);
 	$mailersend->isSMTP();
 	$mailersend->SMTPAuth = true;

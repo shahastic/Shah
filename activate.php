@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 
 <!DOCTYPE html>
@@ -130,17 +130,17 @@ include '_dbconnect.php';
 
 
     $token = $_GET['token'];
+    $email = $_GET['email'];
+    // $tokken = $_SESSION['tokken'];
     
-    $tokken = $_SESSION['tokken'];
-    
-    if($tokken==$token){
+    if($token && $email){
        
    
-    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
+    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$token' AND `shavi`. email = $email";
 
     $query = mysqli_query($conn, $update);
     if(($query)){
-        header('Location: sendmail.php');
+        header("Location: sendmail.php?email=$email&token=$token");
         }
         else {
             header('Location: galti.php');

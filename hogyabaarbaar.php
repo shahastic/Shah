@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include '_dbconnect.php';
 ?>
 <!doctype html>
@@ -143,8 +143,8 @@ if ($mailbhej) {
     
     $resultDel = mysqli_query($conn, $sqldel);
     
-    session_unset();
-    session_destroy();
+    // session_unset();
+    // session_destroy();
     
 
 }

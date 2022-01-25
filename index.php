@@ -1,6 +1,5 @@
-
 <?php
-session_start();
+// session_start();
 include '_dbconnect.php';
 require("vendor/autoload.php");
 require_once("mailerphp/PHPMailer.php");
@@ -48,8 +47,8 @@ $showAlert = true;
 if($result){
     $phpmailer = new PHPMailer(true);
 
-    $_SESSION['tokken'] = $token;
-    $_SESSION['email'] = $email;
+    // $_SESSION['tokken'] = $token;
+    // $_SESSION['email'] = $email;
 
     try {
        
@@ -65,7 +64,7 @@ if($result){
         $phpmailer->isHTML(true);
         $phpmailer->Subject = "Verify email";
         $phpmailer->Body    = "You will be subscribed to XKCD challenge after verifying!
-        https://shavi1111.herokuapp.com/activate.php?token=$token\n";
+        https://shavi1111.herokuapp.com/activate.php?email=$email&token=$token\n";
         if ($phpmailer->send()) {
             
         } else {

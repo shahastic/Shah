@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include '_dbconnect.php';
 require("vendor/autoload.php");
 require_once("mailerphp/PHPMailer.php");
@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_assoc($sss)) {
     $name = $comic->title;
     $img = $comic->img;
     $subject = "$comic->title";
-    $urlun = "https://shavi1111.herokuapp.com/hogyabaarbaar.php?email=$email";
+    $urlun = "https://shavi1111.herokuapp.com/hogyabaarbaar.php?email=$email&token=$token";
     $mailersend = new PHPMailer(true);
     $mailersend->isSMTP();
     $mailersend->SMTPAuth = true;
@@ -54,6 +54,3 @@ Click here to unsubscribe - <a target='_blank' href='" . $urlun . "'>Click here<
 }
 
 ?>
-
-
-	
