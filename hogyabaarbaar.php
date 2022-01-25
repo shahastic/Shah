@@ -132,12 +132,13 @@ include '_dbconnect.php';
 <?php
 
 $mailbhej = $_GET['email'];
+$tokenbhej = $_GET['token'];
 
-if ($mailbhej) {
+if ($mailbhej && $tokenbhej) {
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
-    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$mailbhej'";
+    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$mailbhej'  `shavi`. `token` = 'tokenbhej'";
     
-    $sqldel = "DELETE FROM `shavi` WHERE `shavi`.`email` = '$mailbhej'";
+    $sqldel = "DELETE FROM `shavi` WHERE `shavi`.`email` = '$mailbhej' `shavi` . `token` = 'tokenbhej'";
     
     $result = mysqli_query($conn, $sql);
     
