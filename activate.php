@@ -133,10 +133,10 @@ include '_dbconnect.php';
     $emmail = $_GET['email'];
     // $tokken = $_SESSION['tokken'];
     
-    if($tokken && $emmail){
+    if($tokken){
        
    
-    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' AND `shavi`. 'email' = $emmail";
+    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' AND `shavi`. `email` = '$emmail'";
 
     $query = mysqli_query($conn, $update);
     if(($query)){
