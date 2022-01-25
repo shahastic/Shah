@@ -1,31 +1,5 @@
-<?php
-
-session_start();
-
-include '_dbconnect.php';
 
 
-
-    $token = $_GET['token'];
-    echo $token;
-    $tokken = $_SESSION['tokken'];
-    echo $tokken;
-    if($tokken==$token){
-        echo "if";
-    // $update = "Update Registration Set Status ='active' where token= '$token' ";
-    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
-
-    $query = mysqli_query($conn, $update);
-    if(($query)){
-        header('Location: sendmail.php');
-        }
-        else {
-            header('Location: index.php');
-        }
-    }
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,3 +131,33 @@ button{
     </form>
 </body>
 </html>
+
+
+
+<?php
+
+session_start();
+
+include '_dbconnect.php';
+
+
+
+    $token = $_GET['token'];
+    
+    $tokken = $_SESSION['tokken'];
+    
+    if($tokken==$token){
+       
+   
+    $update = "UPDATE `shavi` SET active = '1' WHERE `shavi` . `token` = '$tokken' ";
+
+    $query = mysqli_query($conn, $update);
+    if(($query)){
+        header('Location: sendmail.php');
+        }
+        else {
+            header('Location: nhigya.php');
+        }
+    }
+
+

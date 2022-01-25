@@ -28,7 +28,7 @@ $token = openssl_random_pseudo_bytes(16);
 //Convert the binary data into hexadecimal representation.
 $token = bin2hex($token);
 
-$existsql = "SELECT * FROM `shavi` WHERE email = '$email'";
+$existsql = "SELECT * FROM `shavi` WHERE email = '$email' AND active = '1'";
 $result = mysqli_query($conn, $existsql);
 $numExistRows = mysqli_num_rows($result);
 if($numExistRows>0)
@@ -40,7 +40,7 @@ else
 
 $sql = "INSERT INTO `shavi` (`sno`, `email`, `token`, `tstamp`, `active`) VALUES (NULL, '$email', '$token', current_timestamp(), '0');";
 $result = mysqli_query($conn, $sql);
-echo $result;
+
 $showAlert = true;
 
 }
@@ -71,7 +71,9 @@ if($result){
             <p> <strong>Email verification sent!!! <br> </strong>  Please verify your email address.</p>
            </div>';
         } else {
-            echo "{$mail->ErrorInfo}";
+            echo '<div class="alert">
+        <p> Something Went Wrong</p>
+       </div>';
         }
     } catch (Exception $e) {
         echo '<div class="alert">
@@ -212,7 +214,7 @@ button{
         <div class="shape"></div>
     </div>
     <form action="index.php" method ="POST">
-        <h3>Subscribe This XKCD Challenge</h3>
+        <h3>The Comic Mailer</h3>
 
         <div class="form-group">
             <label for="email">Email address</label>
@@ -220,8 +222,8 @@ button{
             <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
         <button type="submit" class="btn btn-primary">Subscribe</button>
-        <?php
-
+       
+<?php
 if($showAlert)
  {
  echo " <div class='container'>
@@ -233,11 +235,9 @@ if($showError)
 {
  echo " <div class='container'>
  <b>You Email is Not Sent. Enter your correct Email Address...</b>
-</div>.$showError.";
+</div>";
 }
-
-
-    ?>
+?>
     </form>
   
     <script>

@@ -20,19 +20,19 @@ use PHPMailer\PHPMailer\PHPMailer;
 	$img = $comic->img;
 	$subject = "$comic->title";
 	$urlun = "https://shavi1111.herokuapp.com/hogya.php?email=$email";
-	$mail = new PHPMailer(true);
-	$mail->isSMTP();
-	$mail->SMTPAuth = true;
-	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-	$mail->Host = "smtp.gmail.com";
-	$mail->Port = "587";
-	$mail->Username = "phpassignmail@gmail.com";
-	$mail->Password = "php1123!!";
-	$mail->setFrom("phpassignmail@gmail.com");
-	$mail->addAddress($email);
-	$mail->isHTML(true);
-	$mail->Subject = "New Comic Arrived...";
-	$mail->Body = '
+	$mailersend = new PHPMailer(true);
+	$mailersend->isSMTP();
+	$mailersend->SMTPAuth = true;
+	$mailersend->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+	$mailersend->Host = "smtp.gmail.com";
+	$mailersend->Port = "587";
+	$mailersend->Username = "phpassignmail@gmail.com";
+	$mailersend->Password = "php1123!!";
+	$mailersend->setFrom("phpassignmail@gmail.com");
+	$mailersend->addAddress($email);
+	$mailersend->isHTML(true);
+	$mailersend->Subject = "New Comic Arrived...";
+	$mailersend->Body = '
   	          <p>Hello XKCDian</p>
   	          Here is your new comic.
   	          <h3>' . $comic->safe_title . "</h3>
@@ -40,19 +40,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 			<br />
 			To read the comic,  --> <a target='_blank' href='https://xkcd.com/" . $comic->num . "'>Click here</a><br /> 
 			To Unsubscribe the Xkcd,  --> <a target='_blank' href='" . $urlun . "'>Click here</a><br />";
-	$mail->addStringAttachment(file_get_contents($img), "$subject.jpg");
-	if ($mail->send()) {
-		header("Location: activate.php");
+	$mailersend->addStringAttachment(file_get_contents($img), "$subject.jpg");
+	if ($mailersend->send()) {
+		header("Location: aftersub.php");
 	} else {
-		echo '<div class="container2">
-        <div class="brand-title" style="color: red;">Error!!!</div>
-        <br> <br> <br>
-        <p>You have not subscribed to XKCD!!!</p>
-        <br> <br> <br>
-        <div class="inputs">
-            <button type="submit" class="btn btn-primary"><a style="color: white; text-decoration: none;" href='.$indexPage.'>Subscribe</a></button>
-        </div>
-    </div>';
+		header("Location: galti.php");
+		
 	}
 	
 	?>
+
+
+	
