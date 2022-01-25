@@ -33,13 +33,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 	$mailersend->isHTML(true);
 	$mailersend->Subject = "New Comic Arrived...";
 	$mailersend->Body = '
-  	          <p>Hello XKCDian</p>
-  	          Here is your new comic.
+  	          <p>Hello User!</p>
+  	          The comic you have subscribed is here.
+				Enjoy :)
   	          <h3>' . $comic->safe_title . "</h3>
   	          <img src='" . $comic->img . "' alt='some comic hehe'/>
 			<br />
-			To read the comic,  --> <a target='_blank' href='https://xkcd.com/" . $comic->num . "'>Click here</a><br /> 
-			To Unsubscribe the Xkcd,  --> <a target='_blank' href='" . $urlun . "'>Click here</a><br />";
+			Click here to read - <a target='_blank' href='https://xkcd.com/" . $comic->num . "'>Click here</a><br /> 
+			Click here to unsubscribe - <a target='_blank' href='" . $urlun . "'>Click here</a><br />";
 	$mailersend->addStringAttachment(file_get_contents($img), "$subject.jpg");
 	if ($mailersend->send()) {
 		header("Location: aftersub.php");

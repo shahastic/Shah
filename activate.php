@@ -146,5 +146,8 @@ include '_dbconnect.php';
             header('Location: nhigya.php');
         }
     }
+    else{
+        header("Location: nhigya.php");
+    }
 
-
+?>
