@@ -163,9 +163,7 @@ if ($email == $emailV) {
         <button type="submit" class="btn btn-primary">Subscribe</button>
 
     </form>' ;   }
-    else {
-        header("Location : index.php");
-} 
+   
 
 }
 ?>
