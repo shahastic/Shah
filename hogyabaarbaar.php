@@ -134,7 +134,7 @@ include '_dbconnect.php';
 $mailbhej = $_GET['email'];
 $tokenbhej = $_GET['token'];
 
-if ($mailbhej && $tokenbhej) {
+if ( $tokenbhej) {
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
     $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$mailbhej'  `shavi`. `token` = 'tokenbhej'";
     

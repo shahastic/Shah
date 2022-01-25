@@ -9,11 +9,11 @@ include '_dbconnect.php';
 $emailV = $_GET['email'];
 $tokken = $_GET['token'];
 
-if ($email == $emailV && $tokken == $token) {
+if ($emailV) {
     // $indexPage = "https://shavi1111.herokuapp.com/index.php";
-    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$email' AND `shavi` . `token` = '$token'";
+    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$emailV' AND `shavi` . `token` = '$tokken'";
     
-    $sqldel = "DELETE  FROM `shavi` WHERE `shavi`.`email` = '$email' AND `shavi` . `token` = '$token'";
+    $sqldel = "DELETE  FROM `shavi` WHERE `shavi`.`email` = '$emailV' AND `shavi` . `token` = '$tokken'";
     
     $result = mysqli_query($conn, $sql);
     
