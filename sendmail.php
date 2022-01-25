@@ -11,8 +11,8 @@ use PHPMailer\PHPMailer\PHPMailer;
   <?php
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
 	// $email = $_SESSION['email'];
-	$email = 'email';
-	$token = 'token';
+	$email = $_GET['email'];
+	$token = $_GET['token'];
 	$rand_comic = rand(0, 1000);
 	$api_url    = 'http://xkcd.com/' . $rand_comic . '/info.0.json';
 	$json_data = file_get_contents($api_url);
