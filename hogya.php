@@ -7,7 +7,7 @@ include '_dbconnect.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="index.css">
     <script>
     </script>
 <style media="screen">
