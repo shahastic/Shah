@@ -138,7 +138,7 @@ if ($email == $emailV) {
     session_unset();
     session_destroy();
     if ($result) {
-       header("Location: abbbas,php");   }
+       header("Location: abbbas.php");   }
     else{
         
     }
