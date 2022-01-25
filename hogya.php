@@ -152,7 +152,7 @@ if ($email == $emailV) {
         <div class="shape"></div>
     </div>
     <form action="index.php" method="POST">
-        <h3>Subscribe This XKCD Challenge</h3>
+        <h3>The Comic Mailer</h3>
 
         <div class="form-group">
             <h4> Ohhhh!! You have Unsubscribed Our Comic.</h4><br>
