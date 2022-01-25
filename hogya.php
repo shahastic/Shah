@@ -48,7 +48,7 @@ if ($email == $emailV) {
             <h4> Subscribe it again if you want to read it!....</h4><br>
             <h3>Thank You!</h3>
         </div>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-primary"> <a href="https://shavi1111.herokuapp.com/index.php">Subscribe</a> </button>
 
     </form> </div>' ;   }
     else{
