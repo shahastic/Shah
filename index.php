@@ -67,9 +67,7 @@ if($result){
         $phpmailer->Body    = "You will be subscribed to XKCD challenge after verifying!
         https://shavi1111.herokuapp.com/activate.php?token=$token\n";
         if ($phpmailer->send()) {
-            echo '<div class="alert">
-            <p> <strong>Email verification sent!!! <br> </strong>  Please verify your email address.</p>
-           </div>';
+            
         } else {
             echo '<div class="alert">
         <p> Something Went Wrong</p>
@@ -223,7 +221,21 @@ button{
           </div>
         <button type="submit" class="btn btn-primary">Subscribe</button>
        
+<?php
+if($showAlert)
+ {
+ echo " <div class='container'>
+ <b>You Email is Sent. Please Verify your Email Address...</b>
+</div>";
+}
 
+if($showError)
+{
+ echo " <div class='container'>
+ <b>You Email is Not Sent. Enter your correct Email Address...</b>
+</div>";
+}
+?>
     </form>
   
     <script>
