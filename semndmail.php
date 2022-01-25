@@ -8,12 +8,13 @@ require_once("mailerphp/Exception.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 ?>
-  <?php
+
+<?php
 
 $sql = "SELECT * FROM `shavi` WHERE active = '1'";
 $sss = mysqli_query($conn, $sql);
 
-while($row=mysqli_fetch_row($sss)){
+while($row=mysqli_fetch_assoc($sss)){
 
     $email = $row['email'];
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
