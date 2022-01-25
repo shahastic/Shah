@@ -164,6 +164,9 @@ if ($email == $emailV) {
         <button type="submit" class="btn btn-primary">Subscribe</button>
 
     </form> </div>' ;   }
+    else{
+        echo "hhhuuhno";
+    }
    
 
 }
