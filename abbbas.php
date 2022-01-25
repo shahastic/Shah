@@ -1,14 +1,16 @@
-<?php
-session_start();
-?>
-<!doctype html>
+
+
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        
-        <style media="screen">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>TheMailer</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
       *,
 *:before,
 *:after{
@@ -19,7 +21,7 @@ session_start();
 body{
     background-color: #080710;
 }
-.background{
+.only{
     width: 430px;
     height: 520px;
     position: absolute;
@@ -27,7 +29,7 @@ body{
     left: 50%;
     top: 50%;
 }
-.background .shape{
+.only .shape{
     height: 200px;
     width: 200px;
     position: absolute;
@@ -62,7 +64,7 @@ form{
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 60px 45px;
 }
 form *{
     font-family: 'Poppins',sans-serif;
@@ -109,47 +111,28 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
-.container {
-  color:white;
-}
+
     </style>
+</head>
+<body>
+<div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="index.php" method="POST">
+        <h3>The Comic Mailer</h3>
 
-    <title>Unsubscribed
-        </title>
-    </head>
-    
-    <body>
-        <?php
-include '_dbconnect.php';
-$email = $_SESSION['email'];
+        <div class="form-group">
+            <h4> Ohhhh!! You have Unsubscribed Our Comic.</h4><br>
+            <h4> Now you are not able to read it again....</h4><br>
+            <h4> Subscribe it again if you want to read it!....</h4><br>
+            <h3>Thank You!</h3>
+        </div>
+        <button type="submit" class="btn btn-primary"> <a href="https://shavi1111.herokuapp.com/index.php">Subscribe</a> </button>
 
-$emailV = $_GET['email'];
+    </form>
 
-if ($email == $emailV) {
-    // $indexPage = "https://shavi1111.herokuapp.com/index.php";
-    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$email'";
-    
-    $sqldel = "DELETE * FROM `shavi` WHERE `shavi`.`email` = '$email'";
-    
-    $result = mysqli_query($conn, $sql);
-    
-    $resultDel = mysqli_query($conn, $sqldel);
-    
-    session_unset();
-    session_destroy();
-    if ($result) {
-       header("Location: abbbas,php");   }
-    else{
-        
-    }
    
-
-}
-else{
-    
-}
-?>
-
 </body>
-
 </html>
+
