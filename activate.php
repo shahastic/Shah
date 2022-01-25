@@ -143,11 +143,11 @@ include '_dbconnect.php';
         header('Location: sendmail.php');
         }
         else {
-            header('Location: nhigya.php');
+            header('Location: galti.php');
         }
     }
     else{
-        header("Location: nhigya.php");
+        header("Location: galti.php");
     }
 
 ?>
