@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Design by foolishdeveloper.com -->
+  <!-- -->
     <title>TheMailer</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">

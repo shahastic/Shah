@@ -4,14 +4,10 @@
 //     session_destroy();
     ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Design by foolishdeveloper.com -->
+  <!--  -->
     <title>TheMailer</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -131,7 +127,7 @@ button{
         <h3>The Comic Mailer</h3>
 
         <div class="form-group">
-            <h4> Ohhhh!! You have Unsubscribed Our Comic.</h4><br>
+            <h4> Ohhhh!! You have Unsubscribed This Comic.</h4><br>
             <h4> Now you are not able to read it again....</h4><br>
             <h4> Subscribe it again if you want to read it!....</h4><br>
             <h3>Thank You!</h3>
