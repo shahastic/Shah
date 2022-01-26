@@ -129,7 +129,9 @@
 <?php
 
 $mailbhej = $_GET['email'];
+echo $mailbhej;
 $tokenbhej = $_GET['token'];
+echo $tokenbhej;
 
 if ( $tokenbhej) {
     include '_dbconnect.php';
@@ -139,9 +141,9 @@ if ( $tokenbhej) {
     $sqldel = "DELETE FROM `shavi` WHERE `shavi`.`email` = '$mailbhej' AND `shavi` . `token` = '$tokenbhej'";
     
     $result = mysqli_query($conn, $sql);
-    
+    echo $result;
     $resultDel = mysqli_query($conn, $sqldel);
-    
+    echo $resultDel;
     // session_unset();
     // session_destroy();
     

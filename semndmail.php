@@ -17,6 +17,7 @@ $sss = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($sss)) {
 
     $email = $row['email'];
+    $token = $row['token'];
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
     // $email = $_SESSION['email'];
     $rand_comic = rand(0, 1000);
