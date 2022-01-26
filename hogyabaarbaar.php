@@ -136,9 +136,9 @@ $tokenbhej = $_GET['token'];
 
 if ( $tokenbhej) {
     $indexPage = "https://shavi1111.herokuapp.com/index.php";
-    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$mailbhej'  `shavi`. `token` = '$tokenbhej'";
+    $sql = "UPDATE `shavi` SET `active` = '0' WHERE `shavi`.`email` = '$mailbhej' AND `shavi`. `token` = '$tokenbhej'";
     
-    $sqldel = "DELETE FROM `shavi` WHERE `shavi`.`email` = '$mailbhej' `shavi` . `token` = '$tokenbhej'";
+    $sqldel = "DELETE FROM `shavi` WHERE `shavi`.`email` = '$mailbhej' AND `shavi` . `token` = '$tokenbhej'";
     
     $result = mysqli_query($conn, $sql);
     
@@ -147,11 +147,8 @@ if ( $tokenbhej) {
     // session_unset();
     // session_destroy();
     
-
-}
-?>
-
-<div class="background">
+    if ($result){
+       echo '<div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
@@ -164,7 +161,13 @@ if ( $tokenbhej) {
             <h4> Subscribe it again if you want to read it!....</h4><br>
             <h3>Thank You!</h3>
         </div>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-primary">Subscribe</button>';
+
+    }
+
+}
+?>
+
 
 </form> 
 
